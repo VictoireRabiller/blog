@@ -1,0 +1,38 @@
+<?php 
+include 'header.phtml'; 
+?>
+
+
+<main class="container">
+	<h2><i class="far fa-file-alt"></i> Article</h2>
+		
+	<div class="article">
+		<p class="title"><?= $article["title"] ?></p>
+		<p class="content"><?= $article["content"] ?></p>
+		<small> Rédigé par <?= $article["firstname"] ?> <?= $article["lastname"] ?> le <?= $article["created_at"] ?>  </small>
+				
+	</div>
+	<hr>
+	<hr>
+	<fieldset>
+		<legend><i class="far fa-comment"></i> Nouveau commentaire</legend>
+		<label for="pseudo">Pseudo : </label>
+		<input type="text" name="pseudo" id="pseudo">
+		<label for="commentaire">Commentaire : </label>
+		<textarea id="commentaire" cols="50" rows="5"></textarea>
+		<button id="ajouter">Ajouter</button>
+		<button id="annuler">Annuler</button>
+		
+
+	</fieldset>
+
+
+
+</main>
+		
+
+
+<?php 
+include 'footer.phtml'; 
+?>
+		

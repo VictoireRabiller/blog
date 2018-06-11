@@ -1,0 +1,28 @@
+ARTICLE
+id INT(11)
+author_id INT(11)
+created_at DATETIME
+updated_at DATETIME
+title VARCHAR(255)
+content TEXT
+category_id INT(11)
+
+
+CATEGORY
+id INT(11)
+name VARCHAR(255)
+
+AUTHOR
+id INT(11)
+firstname VARCHAR(255) 
+lastname VARCHAR(255)
+email VARCHAR(255)
+password VARCHAR(255)
+
+
+COMMENT
+id INT(11)
+created_at DATETIME
+pseudo VARCHAR(255)
+content
+article_id INT(11)

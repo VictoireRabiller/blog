@@ -1,0 +1,44 @@
+<?php
+include 'header.phtml';
+?>
+<main>
+	<h2>Admin</h2>
+
+	<a href="newArticle.php">Rédiger un article</a>
+
+	<table>
+	    <caption>Liste des articles</caption>
+	    <thead>
+	        <tr>
+	            <th>Titre</th>
+	            <th>Article</th>
+	            <th>Auteur</th>
+	            <th>Catégorie</th>
+	            <th></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	       	<?php foreach ($articlesList as $article) : ?>
+	        <tr>
+	        	
+	            <td><a href='show_post.php?articleid=<?=$article["articleid"]?>' target="_blank"> <?= $article["title"] ?></a></td>
+	            <td><?= $article["content"] ?></td>
+	            <td> <?= $article["firstname"] ?> <?= $article["lastname"] ?></td>
+	            <td></td>
+		        <td>
+	                <a class="edit" href="edit.php?articleid=<?=$article["articleid"]?>"><i class="fas fa-pencil-alt"></i></a>
+	                <a class="remove" href="delete.php?articleid=<?=$article["articleid"]?>"><i class="fas fa-trash"></i></a>
+	            </td>
+	           
+	        </tr>
+	        <?php endforeach; ?>  
+	    </tbody>
+	</table>    
+
+</main>
+
+
+<?php 
+include 'footer.phtml'; 
+?>
+		

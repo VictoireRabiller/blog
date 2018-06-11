@@ -1,0 +1,54 @@
+<?php 
+include 'header.phtml'; 
+?>
+
+<main class="container">
+	<h2><i class="fas fa-pencil-alt"></i> Rédiger un nouvel article</h2>
+	<form method="POST" action="add_post.php">
+		<fieldset>
+			<legend><i class="far fa-file"></i> Nouvel article</legend>
+			
+			<label for="title">Titre : </label>
+			<input type="text" name="title" id="title">
+			
+			<label for="content">Article : </label>
+			<textarea id="content" name="content" cols="50" rows="5"></textarea>
+			
+				<?php
+				$categoryList = getCategoryList();
+				?>
+				<select name="category_id">
+					<option></option>	
+					<?php foreach ($categoryList as $category): ?>
+						<option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+					<?php endforeach ?>
+				</select>	
+
+				<?php
+				$authorList = getAuthorList();
+				?>
+				<select name="author">
+				<option></option>
+					<?php foreach ($authorList as $author): ?>
+						<option value="<?= $author['id'] ?>"><?= $author['firstname'] ?> <?= $author['lastname'] ?></option>
+					<?php endforeach ?>
+				</select>
+
+			
+
+			<button type="submit" id="ajouter">Enregistrer</button>
+			<button id="annuler">Annuler</button>
+			
+
+		</fieldset>
+	</form>
+
+
+</main>
+		
+
+
+<?php 
+include 'footer.phtml'; 
+?>
+		
