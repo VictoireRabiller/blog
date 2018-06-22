@@ -47,9 +47,9 @@ function getArticleById($id){
 		author.lastname
 		FROM article 
 		JOIN author ON author.id = article.author
-        WHERE article.id = '$id'";
+        WHERE article.id = ?";
 	$statement = $db->prepare($sql);
-	$statement->execute();
+	$statement->execute('$id');
 	$article = $statement->fetch(\PDO::FETCH_ASSOC);
 
 	return $article;
