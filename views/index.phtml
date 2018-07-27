@@ -1,26 +1,24 @@
 <?php 
 include 'header.phtml'; 
 ?>
-		
 
+<main class="container">
+	<h2><i class="fas fa-home"></i> Accueil, Home my Home Sweet Home :)</h2>
+		<ul class="post-list">
+    		<li class="post">
+    			<?php foreach ($articlesList as $article) : ?>
+				<h3> <i class='fas fa-hand-point-right'></i> 
+				<a href='show_post.php?articleid=<?=$article["articleid"]?>'><?= cleanText($article['title']) ?></a></h3>
+				<article><?= cleanText(htmlspecialchars($article['content']), 0, 100) ?>&nbsp;[...]</article>
+				<small> Rédigé par <?= $article["firstname"] ?> <?= $article["lastname"] ?> le <?= $article["created_at"] ?>  </small>
+					
+    		    <?php endforeach; ?>		
+    			
+			</li>
+    
+		</ul>    
 
-		<main class="container">
-			<h2><i class="fas fa-home"></i> Accueil, Home my Home Sweet Home :)</h2>
-				<ul class="post-list">
-            		<li class="post">
-            			<?php foreach ($articlesList as $article) : ?>
-						<h3> <i class='fas fa-hand-point-right'></i> 
-						<a href='show_post.php?articleid=<?=$article["articleid"]?>'><?= cleanText($article['title']) ?></a></h3>
-						<article><?= cleanText($article['content']) ?></article>
-						<small> Rédigé par <?= $article["firstname"] ?> <?= $article["lastname"] ?> le <?= $article["created_at"] ?>  </small>
-							
-            		    <?php endforeach; ?>		
-            			
-        			</li>
-            
-    			</ul>    
-
-		</main>
+</main>
 
 
 <?php 

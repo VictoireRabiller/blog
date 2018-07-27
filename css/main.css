@@ -30,10 +30,13 @@ header{
 
 }
 
+main{
+    padding: 1rem 2rem;
+}
+
 .container{
 	width: 80%;
 	padding: 0 20px;
-
 }
 
 h1{
@@ -51,7 +54,6 @@ h1 a:hover {
 }
 
 
-    
 h3,h2 {
 	color: #2a8782;
 }
@@ -67,12 +69,148 @@ a{
 
 }
 
-fieldset{
-	width : 500px;
-}
+
 th, td {
 	width : 300px;
+	text-align: left;
 }
+
 table {
 	border : 1px dashed grey;
+}
+
+
+
+.button{
+    display: inline-block;
+    padding: 0.375em 1.25em;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    line-height: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.25s, box-shadow 0.25s;
+}
+
+.button[disabled],.button[disabled]:hover{
+    background-color: silver;
+    box-shadow: none;
+    color: grey;
+}
+
+.button + .button{
+    margin-left: 1em;
+}
+
+.button-cancel{
+    background-color: #2F2933;
+    color: white;
+}
+
+.button-cancel:hover{
+    background-color: #BDF271;
+    box-shadow: 0 0 4px 2px rgba(255, 102, 51, 0.5);
+    color: black;
+}
+
+.button-primary{
+    background-color: #2a8782;;
+    color: white;
+}
+
+.button-primary:hover{
+    background-color: #BDF271;;
+    box-shadow: 0 0 4px 2px rgba(102, 204, 153, 0.5);
+    color: black;
+}
+
+.button:active{
+    box-shadow: none;
+}
+
+form{
+    margin-top: 2em;
+}
+
+form fieldset{
+    border-radius: 4px;
+}
+
+form fieldset legend{
+    padding: 0 0.5em;
+}
+
+hr{
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+fieldset{
+    width : 500px;
+}
+
+
+.generic-form{
+    margin: 0 auto;
+    width: 50%;
+}
+
+.generic-form fieldset{
+    border-color: #01A2A6;
+}
+
+.generic-form fieldset legend{
+    color: #01A2A6;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.generic-form input[type="password"],
+.generic-form input[type="text"],
+.generic-form select,
+.generic-form textarea{
+    /* structure */
+    padding: 2px;
+
+    /* presentation */
+    border: 1px solid grey;
+    transition: background-color 0.33s;
+}
+.generic-form input[type="password"],
+.generic-form input[type="text"],
+.generic-form select,
+.generic-form textarea{
+    width: 30em;
+}
+.generic-form input[type="password"]:focus,
+.generic-form input[type="text"]:focus,
+.generic-form select:focus,
+.generic-form textarea:focus{
+    background-color: #E3FFFB;
+}
+.generic-form textarea{
+    resize: none;
+}
+.generic-form ul{
+    list-style-type: none;
+}
+.generic-form ul li{
+    margin: 1em 0;
+}
+.generic-form ul li:last-child{
+    margin-left: 116px; /* aligner avec les autres labels */
+    margin-top: 3em;
+}
+.generic-form ul li label{
+ 
+    display: inline-block;
+    color: #2F2933;
+    font-weight: bold;
+}
+.generic-form ul li label.textarea{
+    vertical-align: top;
+}
+.generic-form ul li label{
+    width: 112px;
 }

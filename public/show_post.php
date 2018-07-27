@@ -8,4 +8,8 @@ $article = getArticleById( $_GET['articleid'] );
 
 
 
+$commentsList = getComments();
+// pre($articlesList);
+
+
 include "../views/show_post.phtml";

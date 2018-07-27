@@ -2,35 +2,60 @@
 include 'header.phtml'; 
 ?>
 
-
 <main class="container">
 	<h2><i class="far fa-file-alt"></i> Article</h2>
-		
-	<div class="article">
-		<p class="title"><?= $article["title"] ?></p>
-		<p class="content"><?= $article["content"] ?></p>
-		<small> Rédigé par <?= $article["firstname"] ?> <?= $article["lastname"] ?> le <?= $article["created_at"] ?>  </small>
-				
-	</div>
-	<hr>
-	<hr>
-	<fieldset>
-		<legend><i class="far fa-comment"></i> Nouveau commentaire</legend>
-		<label for="pseudo">Pseudo : </label>
-		<input type="text" name="pseudo" id="pseudo">
-		<label for="commentaire">Commentaire : </label>
-		<textarea id="commentaire" cols="50" rows="5"></textarea>
-		<button id="ajouter">Ajouter</button>
-		<button id="annuler">Annuler</button>
-		
+	
+<section class="article">
+    <h3><?= htmlspecialchars($article['title']) ?></h3>
+    <article><?= nl2br(htmlspecialchars($article['content'])) ?></article>
+    <small>
+        Rédigé par <?= htmlspecialchars($article['firstname']) ?> <?= htmlspecialchars($article['lastname']) ?>
+        le <?= htmlspecialchars($article['created_at']) ?>
+    </small>
+</section>
 
-	</fieldset>
+<hr>
 
+<!-- commentaires de l'article -->
+<ul class="comment-list">
+    <?php foreach($commentsList as $comment): ?>
+        <li class="comment">
+            <h4><i class="fa fa-comment"></i> Rédigé par <?= htmlspecialchars($comment['pseudo']) ?></h4>
+            <article><?= htmlspecialchars($comment['content']) ?></article>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<hr>
+
+<!-- nouveau commentaire  -->
+<form class="generic-form" action="add_comment.php" method="POST">
+
+    <!-- champ caché pour spécifier à quel article rattacher le commentaire -->
+    <input type="hidden" name="articleid" value="<?= intval($_GET['articleid']) ?>">
+
+    <fieldset>
+        <legend><i class="fa fa-comment-o"></i> Nouveau commentaire</legend>
+        <ul>
+            <li>
+                <label for="pseudo">Pseudo :</label>
+                <input type="text" id="pseudo" name="pseudo">
+            </li>
+            <li>
+                <label class="textarea" for="content">Commentaire :</label>
+                <textarea id="content" name="content" rows="5"></textarea>
+            </li>
+            <li>
+                <button class="button button-primary" type="submit">Ajouter</button>
+                <a class="button button-cancel" href="index.php">Annuler</a>
+            </li>
+        </ul>
+    </fieldset>
+</form>
 
 
 </main>
 		
-
 
 <?php 
 include 'footer.phtml'; 

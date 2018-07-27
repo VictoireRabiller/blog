@@ -13,7 +13,7 @@ include 'header.phtml';
 	            <th>Titre</th>
 	            <th>Article</th>
 	            <th>Auteur</th>
-	            <th>Catégorie</th>
+	           <!--  <th>Catégorie</th> -->
 	            <th></th>
 	        </tr>
 	    </thead>
@@ -24,10 +24,10 @@ include 'header.phtml';
 	            <td><a href='show_post.php?articleid=<?=$article["articleid"]?>' target="_blank"> <?= $article["title"] ?></a></td>
 	            <td><?= $article["content"] ?></td>
 	            <td> <?= $article["firstname"] ?> <?= $article["lastname"] ?></td>
-	            <td></td>
+	            <!-- <td></td> -->
 		        <td>
 	                <a class="edit" href="edit.php?articleid=<?=$article["articleid"]?>"><i class="fas fa-pencil-alt"></i></a>
-	                <a class="remove" href="delete.php?articleid=<?=$article["articleid"]?>"><i class="fas fa-trash"></i></a>
+	                <a class="remove" href="delete_post.php?articleid=<?=$article["articleid"]?>"><i class="fas fa-trash"></i></a>
 	            </td>
 	           
 	        </tr>
